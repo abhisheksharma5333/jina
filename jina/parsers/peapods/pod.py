@@ -103,3 +103,11 @@ The polling strategy of the Pod (when `parallel>1`)
         default=False,
         help='The head Pea of this Pod will connect to the TailPea of the predecessor Pod.',
     )
+
+    gp.add_argument(
+        '--dump-path',
+        type=str,
+        help='Path to dump (used only with CompoundPods)'
+        if _SHOW_ALL_ARGS
+        else argparse.SUPPRESS,
+    )

@@ -248,6 +248,7 @@ class CompoundPod(BasePod, ExitStack):
         :param dump_path: the dump from which to read the data
         """
         try:
+            print('\n\ninside compoud pod rolling update')
             for i in range(len(self.replicas)):
                 replica = self.replicas[i]
                 replica.close()
@@ -257,6 +258,7 @@ class CompoundPod(BasePod, ExitStack):
                 new_replica = Pod(_args)
                 self.enter_context(new_replica)
                 self.replicas[i] = new_replica
+                print(f'self.replicas[i].args: {self.replicas[i].args}\n')
         except:
             raise
 
